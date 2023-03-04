@@ -1,0 +1,10 @@
+// Assume you have an Exam object called exam and a list of Answer objects called studentAnswers
+
+// Get all the correct answers for this exam
+var correctAnswers = exam.Questions.SelectMany(q => q.Answers.Where(a => a.IsCorrect));
+
+// Get all the correct answers that the student selected
+var correctStudentAnswers = studentAnswers.Where(sa => sa.IsCorrect);
+
+// Calculate the student's grade as a percentage
+double grade = ((double)correctStudentAnswers.Count() / (double)correctAnswers.Count()) * 100;
